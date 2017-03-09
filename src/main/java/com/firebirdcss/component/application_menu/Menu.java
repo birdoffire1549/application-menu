@@ -10,9 +10,9 @@ import java.util.List;
  * This class allows for the quick and simple setup of a menu driven application.
  * <p>
  * To use this object one must instantiate this class, from there it is as simple as calling the
- * {@link #addChild(String, Method)} method to add static {@link Method}s to the menu, and if one
+ * {@link #addItem(String, Method)} method to add static {@link Method}s to the menu, and if one
  * wishes to have a menu option which leads to a new menu/sub-menu then you simply instantiate another
- * of these menu objects and add it to the parent menu using the {@link #addChild(String, Menu)} method.
+ * of these menu objects and add it to the parent menu using the {@link #addItem(String, Menu)} method.
  * <p>
  * When creating the menu system using this object one does not need to worry about an exit option for the
  * main menu, nor does one need to worry about "Back" options for the sub-menus as that is already taken care
@@ -62,7 +62,7 @@ public class Menu {
 				try {
 					method.invoke(null);
 				} catch (Exception e) {
-					System.err.println("ERROR: Unable to execute menu option!");
+					System.err.println("\nERROR: Unable to execute menu option!");
 				}
 			} else if (selection instanceof String) {
 				if (((String) selection).equals("exit")) this.menuActive = false;
@@ -87,7 +87,7 @@ public class Menu {
 	 * @param menuItemText - The text to be displayed in the menu which represents this item
 	 * @param method - The method to execute if this menu option is chosen as {@link Method}
 	 */
-	public void addChild(String menuItemText, Method method) {
+	public void addItem(String menuItemText, Method method) {
 		this.menuItems.add(0, method);
 		this.menuItemsText.add(0, menuItemText);
 	}
@@ -98,7 +98,7 @@ public class Menu {
 	 * @param menuItemText - The text to be displayed in the menu which represents this item
 	 * @param subMenu - The sub-menu to execute if this menu option is chosen as {@link Menu}
 	 */
-	public void addChild(String menuItemText, Menu subMenu) {
+	public void addItem(String menuItemText, Menu subMenu) {
 		this.menuItems.add(0, subMenu);
 		this.menuItemsText.add(0, menuItemText);
 		if (subMenu.menuItems.contains("exit")) {

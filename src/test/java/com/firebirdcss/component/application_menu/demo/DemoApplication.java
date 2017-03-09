@@ -55,18 +55,18 @@ public class DemoApplication {
 		Menu mainMenu = new Menu(bReader);
 		
 		Menu subMenuOne = new Menu(bReader);
-		subMenuOne.addChild("Menu Item 'C'", DemoApplication.class.getMethod("menuItemC"));
-		subMenuOne.addChild("Menu Item 'D'", DemoApplication.class.getMethod("menuItemD"));
-		subMenuOne.addChild("Menu Item 'E'", DemoApplication.class.getMethod("menuItemE"));
-		subMenuOne.addChild("Menu Item 'F'", DemoApplication.class.getMethod("menuItemF"));
+		subMenuOne.addItem("Menu Item 'C'", DemoApplication.class.getMethod("menuItemC"));
+		subMenuOne.addItem("Menu Item 'D'", DemoApplication.class.getMethod("menuItemD"));
+		subMenuOne.addItem("Menu Item 'E'", DemoApplication.class.getMethod("menuItemE"));
+		subMenuOne.addItem("Menu Item 'F'", DemoApplication.class.getMethod("menuItemF"));
 		
 		Menu subMenuTwo = new Menu(bReader);
-		subMenuTwo.addChild("Menu Item 'G'", DemoApplication.class.getMethod("menuItemG"));
+		subMenuTwo.addItem("Menu Item 'G'", DemoApplication.class.getMethod("menuItemG"));
 		
-		mainMenu.addChild("A sub-menu of multiple options", subMenuOne);
-		mainMenu.addChild("Menu Item 'A'", DemoApplication.class.getMethod("menuItemA"));
-		mainMenu.addChild("Menu Item 'B'", DemoApplication.class.getMethod("menuItemB"));
-		mainMenu.addChild("Another sub-menu", subMenuTwo);
+		mainMenu.addItem("A sub-menu of multiple options", subMenuOne);
+		mainMenu.addItem("Menu Item 'A'", DemoApplication.class.getMethod("menuItemA"));
+		mainMenu.addItem("Menu Item 'B'", DemoApplication.class.getMethod("menuItemB"));
+		mainMenu.addItem("Another sub-menu", subMenuTwo);
 		
 		return mainMenu;
 	}
